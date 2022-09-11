@@ -1,18 +1,30 @@
--- Hola fjsdfjsd
-@Principal (
+-- Este programa esta sintacticamente bien escrito
+@Principal ( -- Puede ir en cualquier parte
     New @variable1, (Num, 5); 
-    New @variable2, (Bool, True); 
+    New @variable2, (Bool, True);
+
 );
 
 Proc @proc1 (
-    Values(@variable1, 51);
-    Alter(@variable1, ADD, 5)
-    AlterB(@variable2);
+    CALL(@proc2);
+
+    Repeat (
+        New @variable3, (Num, 5);
+        MoveLeft; 
+        MoveRight;
+        Break; 
+    );
 );
 
-MoveRight;
-MoveLeft;
+Proc @proc2 (
+    Values(@variable1, 51);
+    Alter(@variable2, ADD, 5);
+    AlterB(@variable2);
+
+);
 
 Hammer(N);
-Hammer(E);
+MoveLeft;
 Stop;
+
+PrintValues("La var1 es: ", @variable1); -- Imprime la variable1 
