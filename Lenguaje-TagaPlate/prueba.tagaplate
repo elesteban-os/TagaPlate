@@ -1,0 +1,30 @@
+-- Este programa esta sintacticamente bien escrito
+@Principal ( -- Puede ir en cualquier parte
+    New @variable1, (Num, 5); 
+    New @variable2, (Bool, True);
+
+);
+
+Proc @proc1 (
+    CALL(@proc2);
+
+    Repeat (
+        New @variable3, (Num, 5);
+        MoveLeft; 
+        MoveRight;
+        Break; 
+    );
+);
+
+Proc @proc2 (
+    Values(@variable1, 51);
+    Alter(@variable2, ADD, 5);
+    AlterB(@variable2);
+
+);
+
+Hammer(N);
+MoveLeft;
+Stop;
+
+PrintValues("La var1 es: ", @variable1); -- Imprime la variable1 
