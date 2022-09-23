@@ -19,7 +19,7 @@ class file:
         f.truncate()
         f.close()
 
-    def saveFile(self, text):
+    def saveFileAs(self, text):
         f = open(self.fileUrl, 'w')
         f.write(text)
         f.close()
@@ -33,12 +33,6 @@ class file:
 
     def getFileText(self):
         return self.filetext
-
-'''prueba = file("IDE/ex.txt", "ex.txt")
-prueba.readFile()
-print(prueba.getFileText())'''
-
-prueba3 = file("IDE/ex2.txt", "ex2.txt")
-prueba3.writeFile("""Texto texto    texto                     jdsfijsidfjisajfoisdjfiaiofjsado
-
-                    texto xdd dsfjsoadfkadfkosdafkosdiafk """)
+    
+    def getFileUrl(self):
+        return self.fileUrl

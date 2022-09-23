@@ -193,6 +193,9 @@ color: rgb(255, 255, 255);</string>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QPushButton" name="runButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="sizePolicy">
        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
         <horstretch>0</horstretch>
@@ -253,6 +256,9 @@ color: rgb(255, 255, 255);</string>
       </property>
       <property name="lineWrapMode">
        <enum>QPlainTextEdit::NoWrap</enum>
+      </property>
+      <property name="tabStopDistance">
+       <double>44.000000000000000</double>
       </property>
      </widget>
     </item>
@@ -422,7 +428,7 @@ border-color: rgb(51, 51, 51);
 color: rgb(51, 51, 51);</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="Problems">
        <property name="styleSheet">
@@ -434,7 +440,7 @@ background-color: rgb(51, 51, 51);</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="0" column="0">
-         <widget class="QTableView" name="problemsTable">
+         <widget class="QListWidget" name="problemsList">
           <property name="maximumSize">
            <size>
             <width>16777215</width>
@@ -442,7 +448,8 @@ background-color: rgb(51, 51, 51);</string>
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(51, 51, 51);</string>
+           <string notr="true">background-color: rgb(51, 51, 51);
+color: rgb(255, 255, 255);</string>
           </property>
          </widget>
         </item>
@@ -465,6 +472,9 @@ background-color: rgb(51, 51, 51);</string>
     </item>
     <item row="2" column="0">
      <widget class="QPushButton" name="infoButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="minimumSize">
        <size>
         <width>60</width>
@@ -491,6 +501,9 @@ color: rgb(255, 255, 255);</string>
     </item>
     <item row="1" column="0">
      <widget class="QPushButton" name="compileButton">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="minimumSize">
        <size>
         <width>60</width>

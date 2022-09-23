@@ -1,0 +1,2 @@
+from yacc import doYacc
+
