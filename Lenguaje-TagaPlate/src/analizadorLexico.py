@@ -1,14 +1,10 @@
 import ply.lex as lex
-import re
-import codecs
-import os
-import sys
 
 tokens = ['PPROC', 'ID', 'PROC', 'CALL', 'NEW', 'NUMDT', 'BOOLDT', 'VALUES', 'ALTERB', 'ALTER',
-        'MOVERIGHT', 'MOVELEFT', 'HAMMER', 'STOP', 'ISTRUE', 'REPEAT', 'BREAK', 'UNTIL', 'WHILE', 'CASEWHEN',
-        'THEN', 'ELSE', 'CASE', 'WHEN', 'PRINTVALUES', 'NUMVALUE', 'BOOLVALUE', 'TEXT', 'ADDOP','SUBOP',
-        'MULOP', 'DIVOP', 'NORTH', 'SOUTH', 'EAST', 'WEST', 'EEOP', 'NEOP', 'GETOP','LETOP',
-        'GTOP', 'LTOP', 'COMMENT', 'LPAR', 'RPAR', 'SEMMICOLOM', 'COMMA']
+        'MOVERIGHT', 'MOVELEFT', 'HAMMER', 'STOP', 'ISTRUE', 'REPEAT', 'BREAK', 'UNTIL', 'WHILE','THEN',
+        'ELSE', 'CASE', 'WHEN', 'PRINTVALUES', 'NUMVALUE', 'BOOLVALUE', 'TEXT', 'ADDOP','SUBOP','MULOP', 
+        'DIVOP', 'NORTH', 'SOUTH', 'EAST', 'WEST', 'EEOP', 'NEOP', 'GETOP','LETOP','GTOP', 
+        'LTOP', 'COMMENT', 'LPAR', 'RPAR', 'SEMMICOLOM', 'COMMA']
 
 
 def t_PPROC(t):
@@ -34,20 +30,19 @@ t_REPEAT = r'Repeat'
 t_BREAK = r'Break'
 t_UNTIL = r'Until'
 t_WHILE = r'While'
-t_CASEWHEN = r'CaseWhen'
-
 t_THEN = r'Then'
+
 t_ELSE = r'Else'
 t_CASE = r'Case'
 t_WHEN = r'When'
 t_PRINTVALUES = r'PrintValues'
 t_NUMVALUE = r'\d+'
 t_BOOLVALUE = r'True|False'
-t_TEXT = r'".+"'
+t_TEXT = r'"[\w¿\?¡!\.,:\-<> ]+"' # Podria ser mejor
 t_ADDOP = r'ADD'
 t_SUBOP = r'SUB'
-
 t_MULOP = r'MUL'
+
 t_DIVOP = r'DIV'
 t_NORTH = r'N'
 t_SOUTH = r'S'
@@ -57,8 +52,8 @@ t_EEOP = r'=='
 t_NEOP = r'<>'
 t_GETOP = r'>='
 t_LETOP = r'<='
-
 t_GTOP = r'>'
+
 t_LTOP = r'<'
 t_LPAR = r'\('
 t_RPAR = r'\)'
@@ -81,8 +76,11 @@ def t_SPACE(t):
     pass   
 
 def t_error(t):
-    print("Caracter ilegal '%s'" %t.value[0])
-    t.lexer.skip(1)
+    try:
+        print("Excepcion: (Lexico) Caracter ilegal: '" + str(t.value[0]) + "', linea: " + str(t.lexer.lineno))
+    except:
+        print("Excepcion: (Lexico) Caracter ilegal")
+    exit()
+    # t.lexer.skip(1)
 
 analizador = lex.lex()
-
