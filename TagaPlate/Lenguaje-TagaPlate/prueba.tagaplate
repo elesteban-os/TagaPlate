@@ -1,0 +1,18 @@
+-- Este programa esta sintacticamente bien escrito
+
+@Principal ( -- Puede ir en cualquier parte
+    New @var1, (Num, 34);
+    New @var2, (Bool, False);
+
+);
+
+
+PrintValues("Hola mundo");
+
+Hammer(N);
+Hammer(S);
+Hammer(E);
+Hammer(O);
+
+MoveLeft;
+MoveRight;
